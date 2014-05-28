@@ -1,6 +1,6 @@
-require_relative 'State'
+require_relative 'Automaton'
 
-state = State.new()
+automaton  = Automaton.new
 option = ""
 
 puts "------------------"
@@ -16,6 +16,8 @@ until option == '2'
 
 	case option
 	when '1'
+		automaton.buildAutomaton
+		puts "The initial state ID is: " + automaton.initial.name
 		puts "Hola"
 	when '2'
 		abort ("Bye bye")

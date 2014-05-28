@@ -1,3 +1,5 @@
+require_relative 'State'
+
 class Automaton
 
 	attr_accessor :initial, :final, :stateList, :transitionMatrix, :size
@@ -21,7 +23,7 @@ class Automaton
 
 	def nameState (state)
 		state.name = @size.to_s
-		@size++
+		@size += 1
 	end
 
 end
