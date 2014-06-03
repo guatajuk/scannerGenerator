@@ -25,7 +25,6 @@ system('clear')
 automaton  = Automaton.new
 
 begin 
-	system('clear')
 	option = menu()
 	case option
 		when 1

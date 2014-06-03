@@ -2,19 +2,12 @@ class State
 	
 	attr_accessor :name, :initial, :final
 
-	def initialize
+	def initialize 
 		@name = ""
-		@initial = ""
-		@final = ""
-		@transition = []
+		@final = false
 	end
 
 	def isFinal?
 		return @final ? true : false
 	end
-
-	def isInitial?
-		return @initial ? true : false
-	end
-
 end
