@@ -41,6 +41,7 @@ class BuildAutomaton
 			#implementar para hacer union entre dos automatas
 			#implementar para hacer union entre un automata y un simbolo del alfabeto
 		end
+		@automatonStack.push(automaton)
 		@symbolStack = []
 	end
 
