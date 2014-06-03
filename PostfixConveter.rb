@@ -2,7 +2,7 @@ class PostfixConveter
 
 	attr_accessor :inputStack, :output, :regularExpression, :splittedAlphabet
 
-	Precedence = { '*' => 3, '.' => 2, '|' => 1, '(' => 0, }
+	Precedence = { '+' => 4, '*' => 3, '.' => 2, '|' => 1, '(' => 0, }
 
 	def initialize
 		@inputStack = []

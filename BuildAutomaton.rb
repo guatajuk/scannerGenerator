@@ -12,7 +12,6 @@ class BuildAutomaton
 	def build(regularExp)
 		until regularExp.size == 0
 			terminal = regularExp.shift
-		
 			case terminal
 			when '*'
 				kleene
@@ -20,11 +19,30 @@ class BuildAutomaton
 				union
 			when '.'
 				concatenation
+			when '+'
+				plus
 			else
 				@symbolStack.push(terminal)
 			end
 		end
 	end
+
+	def plus 
+		automaton = Automaton.new(4)
+		unless @symbolStack.empty?
+			4.times { automaton. addState }
+			automaton.stateList.last.final = true
+			automaton.transitionMatrix[0][1] = "E" 
+			automaton.transitionMatrix[1][2] = @symbolStack[0]
+			automaton.transitionMatrix[2][1] = "E"
+			automaton.transitionMatrix[2][3] = "E"
+		else
+			#implementar para hacer concatenación entre dos automatas
+			#implementar para hacer concatenación entre un automata y un simbolo del alfabeto
+		end
+		@automatonStack.push(automaton)
+		@symbolStack = []
+	def
 
 	def kleene
 		automaton = Automaton.new(4)
