@@ -12,31 +12,29 @@ class Automaton
 		@transitionMatrix = []
 	end
 
-	def buildAutomaton
-		if @stateList.empty?
-			@initial = State.new
-			nameState(@initial)
-			@final = @initial
-			@stateList.push(@initial)
-		end
-	end
-
 	def addState
 		@stateList.push(newState = State.new)
-		flag = false
 		begin
-			puts "Type state label"
+			flag = false
+			puts "Type state label: "
 			label = gets.chomp
 			@stateList.each do 
-				|state| 
+				|state|
 				if state.name == label
-					puts "Error - This label is already used by another state"
-				else 
+					puts "Error - This label is already used by another state, try again..."
 					flag = true
-					break
 				end
 			end
 		end while flag
+		newState.name = label
+		puts "¿This state is the automaton inital state? [yes/no]:"
+		if gets.chomp == "yes"
+			@initial = newState
+		end
+		puts "¿This state is a automaton final state? [yes/no]:"
+		if gets.chomp == "yes"
+			@final = newState
+		end
 	end
 
 	def nameState (state)

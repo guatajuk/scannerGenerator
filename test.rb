@@ -1,29 +1,38 @@
 require_relative 'Automaton'
 
-automaton  = Automaton.new
-option = ""
-
-puts "------------------"
-puts "Automaton Testing"
-puts "------------------"
-
-until option == '0'
-	puts "1. Add state"
-	puts "2. Add transition"
-	puts "2. Show Transition Matrix"
-	print "0. Exit \n"
-	print "Choose an option: "
-
-	option = gets.chomp
-
-	case option
-	when '1'
-		automaton.buildAutomaton
-		puts "The initial state ID is: " + automaton.initial.name
-		puts "Hola"
-	when '0'
-		abort ("Bye bye")
-	else 
-		puts "Do it better..."
-	end
+def menu 
+	begin
+		option = ""
+		puts "------------------"
+		puts "Automaton Testing"
+		puts "------------------"
+		puts "1. Add state"
+		puts "2. Add transition"
+		puts "3. Show Transition Matrix"
+		print "0. Exit \n"
+		print "Choose an option: "
+		option = gets.chomp.to_i
+		if option < 0 || option > 3
+			puts "Error - Press any key to continue"
+			system('pause');
+			system('clear')
+		end
+	end while option < 0 || option > 3 
+	return option
 end
+
+system('clear')
+automaton  = Automaton.new
+
+begin 
+	system('clear')
+	option = menu()
+	case option
+		when 1
+			system('clear')
+			automaton.addState
+		when 0
+			system('clear')
+			abort
+	end
+end while option != 0
