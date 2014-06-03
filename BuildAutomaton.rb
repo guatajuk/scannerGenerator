@@ -23,7 +23,21 @@ class BuildAutomaton
 	end
 
 	def kleene(terminal)
-
+		automaton = Automaton.new(4)
+		unless @symbolStack.empty?
+			4.times { automaton. addState }
+			automaton.stateList.last.final == true
+			automaton.transitionMatrix[0][1] = "E" 
+			automaton.transitionMatrix[0][3] = "E" 
+			automaton.transitionMatrix[1][2] = @symbolStack[0] 
+			automaton.transitionMatrix[2][1] = "E" 
+			automaton.transitionMatrix[2][3] = "E"
+		else
+			#implementar para hacer concatenación entre dos automatas
+			#implementar para hacer concatenación entre un automata y un simbolo del alfabeto
+		end
+		@automatonStack.push(automaton)
+		@symbolStack = []
 	end
 
 	def union(terminal)
