@@ -33,9 +33,9 @@ class BuildAutomaton
 			automaton.stateList.last.final == true
 			automaton.transitionMatrix[0][1] == "E"
 			automaton.transitionMatrix[0][3] == "E"
-			automaton.transitionMatrix[1][2] == symbolStack[0]
+			automaton.transitionMatrix[1][2] == @symbolStack[0]
 			automaton.transitionMatrix[2][5] == "E"
-			automaton.transitionMatrix[3][4] == symbolStack[1]
+			automaton.transitionMatrix[3][4] == @symbolStack[1]
 			automaton.transitionMatrix[4][5] == "E"
 		else
 			#implementar para hacer union entre dos automatas
@@ -46,5 +46,17 @@ class BuildAutomaton
 	end
 
 	def concatenation(terminal)
+		automaton = Automaton.new(3)
+		unless @symbolStack.empty?  
+			3.times { automaton.addState }
+			automaton.stateList.last.final == true
+			automaton.transitionMatrix[0][1] == @symbolStack[0]
+			automaton.transitionMatrix[1][2] == @symbolStack[1]
+		else
+			#implementar para hacer concatenación entre dos automatas
+			#implementar para hacer concatenación entre un automata y un simbolo del alfabeto
+		end
+		@automatonStack.push(automatonStack)
+		@symbolStack = []
 	end
 end
