@@ -1,4 +1,4 @@
-require_relative 'Automaton'
+require_relative 'BuildAutomaton'
 
 def menu 
 	begin
@@ -6,32 +6,37 @@ def menu
 		puts "------------------"
 		puts "Automaton Testing"
 		puts "------------------"
-		puts "1. Add state"
-		puts "2. Add transition"
-		puts "3. Show Transition Matrix"
+		puts "1. Add regex"
+		puts "2. print automata"
 		print "0. Exit \n"
 		print "Choose an option: "
 		option = gets.chomp.to_i
-		if option < 0 || option > 3
+		if option < 0 || option > 2
 			puts "Error - Press any key to continue"
 			system('pause');
 			system('clear')
 		end
-	end while option < 0 || option > 3 
+	end while option < 0 || option > 2
 	return option
 end
 
 system('clear')
-automaton  = Automaton.new
-
+ba = BuildAutomaton.new
 begin 
 	option = menu()
 	case option
 		when 1
 			system('clear')
-			automaton.addState
+
+			ba.build(["a", "b", "|"])
+			
+		when 2
+			puts "mmm"
+			print ba.automatonStack.first.transitionMatrix
+			puts "mmm"
 		when 0
 			system('clear')
+
 			abort
 	end
 end while option != 0
