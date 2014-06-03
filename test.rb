@@ -7,9 +7,11 @@ puts "------------------"
 puts "Automaton Testing"
 puts "------------------"
 
-until option == '2'
+until option == '0'
 	puts "1. Add state"
-	print "2. Exit \n"
+	puts "2. Add transition"
+	puts "2. Show Transition Matrix"
+	print "0. Exit \n"
 	print "Choose an option: "
 
 	option = gets.chomp
@@ -19,7 +21,7 @@ until option == '2'
 		automaton.buildAutomaton
 		puts "The initial state ID is: " + automaton.initial.name
 		puts "Hola"
-	when '2'
+	when '0'
 		abort ("Bye bye")
 	else 
 		puts "Do it better..."
