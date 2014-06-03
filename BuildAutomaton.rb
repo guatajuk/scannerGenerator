@@ -22,7 +22,7 @@ class BuildAutomaton
 			@symbolStack.push(terminal)
 	end
 
-	def kleene(terminal)
+	def kleene
 		automaton = Automaton.new(4)
 		unless @symbolStack.empty?
 			4.times { automaton. addState }
@@ -40,7 +40,7 @@ class BuildAutomaton
 		@symbolStack = []
 	end
 
-	def union(terminal)
+	def union
 		automaton = Automaton.new(6)
 		unless @symbolStack.empty?
 			6.times { automaton.addState }
@@ -59,7 +59,7 @@ class BuildAutomaton
 		@symbolStack = []
 	end
 
-	def concatenation(terminal)
+	def concatenation
 		automaton = Automaton.new(3)
 		unless @symbolStack.empty?  
 			3.times { automaton.addState }
