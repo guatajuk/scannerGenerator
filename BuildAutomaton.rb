@@ -15,11 +15,11 @@ class BuildAutomaton
 		
 			case terminal
 			when '*'
-				kleene(terminal)
+				kleene
 			when '|'
-				union(terminal)
+				union
 			when '.'
-				concatenation(terminal)
+				concatenation
 			else
 				@symbolStack.push(terminal)
 			end
@@ -30,7 +30,7 @@ class BuildAutomaton
 		automaton = Automaton.new(4)
 		unless @symbolStack.empty?
 			4.times { automaton. addState }
-			automaton.stateList.last.final == true
+			automaton.stateList.last.final = true
 			automaton.transitionMatrix[0][1] = "E" 
 			automaton.transitionMatrix[0][3] = "E" 
 			automaton.transitionMatrix[1][2] = @symbolStack[0] 
